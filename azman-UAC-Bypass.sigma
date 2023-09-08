@@ -8,6 +8,9 @@ references:
     - https://twitter.com/empise_/status/1665889026677649415/photo/1
 author: Kynan Jones
 date: 2023/06/06
+
+### init comments ###
+run procmon to get the whole exe chain as may find mentions of "dnserrordiag[2]" to pinpoint this activity [/d] may increment
 tags:
     - attack.defense_evasion
     - attack.privilege_escalation
