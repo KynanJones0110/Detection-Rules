@@ -15,13 +15,16 @@ logsource:
   product: windows
   service: system
 detection:
-  selection:
-    EventID: 7045
+  selection_1:
+    - EventID: 7045
+  selection_2:
+    - EventID: 4697
+  selection_3:
     Service_File_Name|contains|all:
       - '%COMSPEC%'
       - '%TEMP%'
       - 'execute.bat'
   condition:
-    selection
+    (selection_1 or selection_2) and selection_3
 
   level: high
