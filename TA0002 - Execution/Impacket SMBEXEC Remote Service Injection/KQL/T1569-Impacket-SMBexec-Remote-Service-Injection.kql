@@ -1,0 +1,19 @@
+let timeframe = 30d;
+SecurityEvent
+| where Timestamp > ago(timeframe)
+// ############################################
+// ####             Normalization          ####
+// ############################################
+| project-rename
+    TimeGenerated = Timestamp,
+    User = SubjectUserName,
+    Domain = SubjectDomainName,
+    Host = Computer
+// ############################################
+// ####             Filter                 ####
+// ############################################
+| where EventID == 4697 or EventID == 7045 // Both can apparently list entries, confirm
+| where ServiceFileName contains "%COMPSEC%" 
+| where ServiceFileName contains "%TEMP%" 
+| where ServiceFileName contains "execute.bat"
+| project TimeGenerated, User, Host, Domain, ServiceAccount, ServiceName, ServiceFileName, SubjectAccount
