@@ -7,7 +7,7 @@ date: 2023/11/21
 tags:
     - attack.execution
     - attack.t1569
-references: 
+references:
     - https://book.hacktricks.xyz/windows-hardening/lateral-movement/smbexec
     - https://en.wikipedia.org/wiki/COMSPEC
     - https://attack.mitre.org/techniques/T1569/
